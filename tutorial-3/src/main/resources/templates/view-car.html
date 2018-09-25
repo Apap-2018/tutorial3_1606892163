@@ -4,10 +4,21 @@
 		<title>View Detail</title>
 	</head>
 	<body>
-		<h3 th:text="${car.id}"></h3>
-		<h3 th:text="${car.brand}"></h3>
-		<h3 th:text="${car.type}"></h3>
-		<h3 th:text="${car.price}"></h3>
-		<h3 th:text="${car.amount}"></h3>
+		<span th:if="${isIdAda} == null">
+			<h2>Mohon maaf, Anda belum memasukkan ID.</h2>
+		</span>
+		<span th:unless="${isIdAda} == null">
+			<span th:if="${car} == null">
+				<h2 th:text="'Mohon maaf mobil dengan nomor ID=' + ${id} + ' tidak tersedia.'"></h2>
+				<h2>Silahkan mencoba kembali. :)</h2>
+			</span>
+			<span th:unless="${car} == null">
+				<h3 th:text="${car.id}"></h3>
+				<h3 th:text="${car.brand}"></h3>
+				<h3 th:text="${car.type}"></h3>
+				<h3 th:text="${car.price}"></h3>
+				<h3 th:text="${car.amount}"></h3>
+			</span>
+		</span>
 	</body>
 </html>
