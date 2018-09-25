@@ -1,0 +1,22 @@
+Pertanyaan 1: Tidak error.
+Pertanyaan 2: ERROR. Ketika memanggil alamat dengan akhiran /car/add, maka method add(...) pada 
+			  CarController.java akan terpanggil. Method tersebut membutuhkan 5 parameter yang
+			  HARUS terisi. Pada pemanggilan alamat localhost:8080/car/add?id=1&brand=Honda&type=Civic&price=200000000,
+			  terdapat satu parameter yang tidak terisi (tidak memiliki nilai), yaitu amount. 
+			  Hal tersebut menyebabkan terjadinya error.
+			  
+Pertanyaan 3: Muncul. 
+Pertanyaan 4: ERROR. Ketika memanggil alamat localhost:8080/car/view?id=2, maka method view(...) pada
+			  CarController.java akan terpanggil. Di dalam method tersebut dibuat objek CarModel bernama
+			  "archive" yang value nya (objek itu sendiri) mengambil dari objek bernama mobilService dan
+			  memiliki id yaitu 2. Error terjadi karena objek mobilService dengan id 2 tidak ada sehingga 
+			  nilai objek CarModel "archive" bernilai null dan dimasukan sebagai model dengan nama "car".
+			  Setelah itu menampilkan halaman view-car.html yang di dalamnya menampilkan value masing-masing
+			  atribut dari model bernama "car". Karena "car" adalah model yang merupakan objek null, maka
+			  view-car.html tidak mendapatkan value dari atribut-atribut yang dimintanya. Oleh karena itu,
+			  terjadilah error.
+			  
+Pertanyaan 5: MUNCUL. Data car dengan id 3 muncul.
+			  
+Pertanyaan 6: MUNCUL. Data yang muncul adalah data car dengan id 3, 4, dan 2 karena sebelumnya telah ditambahkan
+			  data car dengan urutan id 3, 4, dan 2.
