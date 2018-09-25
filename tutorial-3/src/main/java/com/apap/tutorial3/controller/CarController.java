@@ -83,4 +83,25 @@ public class CarController {
 		
 		return "update";
 	}
+	
+	@RequestMapping(value = {"car/delete/", "car/delete/{id}"})
+	public String delete(@PathVariable Optional<String> id, Model model) {
+		CarModel archive = null;
+		String isIdAda = null;
+		
+		if (id.isPresent()) {
+			isIdAda = "ada ID";
+			archive = mobilService.getCarDetail(id.get());
+			model.addAttribute("id", id.get());
+			
+			if (archive != null) {
+				mobilService.deleteCar(archive);
+			}
+		}
+		
+		model.addAttribute("isIdAda", isIdAda);
+		model.addAttribute("car", archive);
+		
+		return "delete";
+	}
 }

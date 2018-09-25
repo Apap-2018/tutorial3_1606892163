@@ -36,4 +36,9 @@ public class CarInMemoryService implements CarService {
 		}
 		return null;
 	}
+	
+	@Override
+	public void deleteCar(CarModel car) {
+		archiveCar.remove(car);
+	}
 }

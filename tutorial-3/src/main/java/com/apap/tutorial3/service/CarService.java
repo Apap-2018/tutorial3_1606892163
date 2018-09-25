@@ -10,4 +10,6 @@ public interface CarService {
 	List<CarModel> getCarList();
 	
 	CarModel getCarDetail(String id);
+	
+	void deleteCar(CarModel car);
 }

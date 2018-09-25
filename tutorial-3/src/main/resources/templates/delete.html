@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Update Amount</title>
+		<title>Delete Car</title>
 	</head>
 	<body>
 		<span th:if="${isIdAda} == null">
@@ -13,14 +13,7 @@
 				<h2>Silahkan mencoba kembali. :)</h2>
 			</span>
 			<span th:unless="${car} == null">
-				<span th:if="${jmlIsAda} == null">
-					<h2>Mohon maaf Anda belum memasukan jumlah amount yang akan diatur ulang.</h2>
-					<h2>Silahkan mencoba kembali. :)</h2>
-				</span>
-				<span th:unless="${jmlIsAda} == null">
-					<h2></h2>
-					<h2 th:text="'Selamat Anda telah berhasil mengupdate amount menjadi ' + ${jml} + ' :)'"></h2>
-				</span>
+				<h2 th:text="'Mobil dengan nomor ID=' + ${id} + ' telah berhasil dihapus.'"></h2>
 			</span>
 		</span>
 	</body>
