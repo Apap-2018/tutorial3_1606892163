@@ -53,4 +53,34 @@ public class CarController {
 		model.addAttribute("listCar", archive);
 		return "viewall-car";
 	}
+	
+	@RequestMapping(value = {"car/update/", "car/update/{id}/amount/", "car/update/{id}/amount/{jml}"})
+	public String update(@PathVariable Optional<String> id, 
+						 @PathVariable Optional<Integer> jml, 
+						 Model model) {
+		CarModel archive = null;
+		String isIdAda = null;
+		
+		if (id.isPresent()) {
+			archive = mobilService.getCarDetail(id.get());
+			isIdAda = "ada ID";
+			model.addAttribute("id", id.get());
+			
+			String jmlIsAda = null;
+			
+			if (archive != null) {
+				if (jml.isPresent()) {
+					jmlIsAda = "ada Jumlah";
+					archive.setAmount(jml.get());
+					model.addAttribute("jml", jml.get());
+				}
+			}
+			model.addAttribute("jmlIsAda", jmlIsAda);
+		}
+		
+		model.addAttribute("isIdAda", isIdAda);
+		model.addAttribute("car", archive);
+		
+		return "update";
+	}
 }
